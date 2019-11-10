@@ -23,7 +23,8 @@ $("#add-train-btn").on("click", function(event) {
   // Grabs user input
   var train = $("#train-name-input").val().trim();
   var destination = $("#destination-input").val().trim();
-  var firstTrainTime = moment($("#first-train-input").val().trim(), "hh:mm").format("X");
+  //the following line has problem
+  var firstTrainTime = moment($("#first-train-input").val().trim(), "hh:mm:ss").format("hh:mm:ss");
   var frequency = $("#frequency-input").val().trim();
 
   // Creates local "temporary" object for holding employee data
@@ -41,7 +42,7 @@ $("#add-train-btn").on("click", function(event) {
   console.log(newTrain.trainName);
   console.log(newTrain.destnationName);
   // console.log(newTrain.start);
-  console.log(newTrain.firstTrain);
+  console.log("this is firstTrain: " + newTrain.firstTrain);
 
   alert("Train successfully added");
 
