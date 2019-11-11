@@ -1,7 +1,5 @@
-// Steps to complete:
 
-
-// 1. Initialize Firebase
+// Initialize Firebase
 var firebaseConfig = {
   apiKey: "AIzaSyCyIEVutqdBs5CKSQ4hBFVX4dt8VYaMh0c",
   authDomain: "trainscheduler-c988a.firebaseapp.com",
@@ -16,7 +14,7 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 
-// 2. Button for adding trains
+// Button for adding trains
 $("#add-train-btn").on("click", function(event) {
   event.preventDefault();
 
@@ -53,7 +51,7 @@ $("#add-train-btn").on("click", function(event) {
   $("#frequency-input").val("");
 });
 
-// 3. Create Firebase event for adding a new train to the database and a row in the html when a user adds an entry
+// Create Firebase event for adding a new train to the database and a row in the html when a user adds an entry
 database.ref().on("child_added", function(childSnapshot) {
   console.log(childSnapshot.val());
 
@@ -66,22 +64,9 @@ database.ref().on("child_added", function(childSnapshot) {
   // Employee Info
   console.log(train);
   console.log(destination);
-  console.log(firstTrain);
+  console.log(firstTrainTime);
   console.log(frequency);
 
-  //start from here next time
-  // Prettify the employee start
-  // var empStartPretty = moment.unix(firstTrain).format("MM/DD/YYYY");
-
-
-  // Calculate the months worked using hardcore math
-  // To calculate the months worked
-  // var empMonths = moment().diff(moment(empStart, "X"), "months");
-  // console.log(empMonths);
-
-  // Calculate the total billed rate
-  // var empBilled = empMonths * empRate;
-  // console.log(empBilled);
 
   // Create the new row
   var newRow = $("<tr>").append(
@@ -89,18 +74,8 @@ database.ref().on("child_added", function(childSnapshot) {
   $("<td>").text(destination),
   $("<td>").text(firstTrainTime),
   $("<td>").text(frequency)
-  //$("<td>").text(empRate),
-  //$("<td>").text(empBilled)
   );
 
   // Append the new row to the table
   $("#train-table > tbody").append(newRow);
 });
-
-// Example Time Math
-// -----------------------------------------------------------------------------
-// Assume Employee start date of January 1, 2015
-// Assume current date is March 1, 2016
-
-// We know that this is 15 months.
-// Now we will create code in moment.js to confirm that any attempt we use meets this test case
