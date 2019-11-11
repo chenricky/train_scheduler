@@ -1,1 +1,1 @@
-# train_scheduler
+I hit a roas block on this one. i did this home work sometime in the office during work and soem tiem at hom. i see inconsistant behaviors between my two computers - at home with a window machien i can see adding new row to the train table is working but not for office. i spent too much time troublehsotting that and all the moment js tiem match is not done.
