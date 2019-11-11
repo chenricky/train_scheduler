@@ -61,19 +61,22 @@ database.ref().on("child_added", function(childSnapshot) {
   var firstTrainTime = childSnapshot.val().firstTrain;
   var frequency = childSnapshot.val().frequencyMinutes;
 
-  // Employee Info
+  // Train Info
   console.log(train);
   console.log(destination);
   console.log(firstTrainTime);
   console.log(frequency);
 
+  //math
+  var timeFromTheFirstTrain = moment($("#first-train-input").val().trim(), "hh:mm:ss").format("hh:mm:ss").formNow();
 
   // Create the new row
   var newRow = $("<tr>").append(
   $("<td>").text(train),
   $("<td>").text(destination),
   $("<td>").text(firstTrainTime),
-  $("<td>").text(frequency)
+  $("<td>").text(frequency),
+  $("<td>").text(timeFromTheFirstTrain)
   );
 
   // Append the new row to the table
